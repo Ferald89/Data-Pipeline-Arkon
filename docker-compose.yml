@@ -4,6 +4,22 @@ volumes:
   postgres_data: {}
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: metro_django
+    depends_on:
+    - db
+    volumes:
+    - .:/app
+    env_file:
+    - ./.env/.django
+    - ./.env/.postgres
+    ports:
+    - "8000:8000"
+    command: /start
+
   db:
    image: postgres
    volumes:

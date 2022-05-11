@@ -1,0 +1,8 @@
+# Base
+psycopg2-binary==2.9.3
+
+# Django
+Django==4.0.4
+
+# Environment
+django-environ==0.8.1
