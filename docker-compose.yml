@@ -4,7 +4,7 @@ volumes:
   postgres_data: {}
 
 services:
-  app:
+  app: &app
     build:
       context: .
       dockerfile: ./compose/django/Dockerfile
@@ -26,3 +26,26 @@ services:
      - postgres_data:/var/lib/postgresql/data
    env_file:
      - ./.env/.postgres
+
+  redis:
+    image: redis:3.2
+
+  celeryworker:
+    <<: *app
+    image: metro_celeryworker
+    depends_on:
+      - redis
+      - db
+      
+    ports: []
+    command: /start-celeryworker
+
+  celerybeat:
+    <<: *app
+    image: metro_celerybeat
+    depends_on:
+      - redis
+      - db
+      
+    ports: []
+    command: /start-celerybeat
