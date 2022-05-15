@@ -1,2 +1,2 @@
-from .townships import Township
+from .districts import District
 from .units import Unit

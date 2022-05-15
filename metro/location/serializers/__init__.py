@@ -1,2 +1,2 @@
-from .townships import TownshipsModelSerializer
+from .districts import DistrictsModelSerializer
 from .unit import UnitModelSerializer

@@ -4,15 +4,15 @@
 from django.contrib import admin
 
 # Models
-from metro.location.models import Township, Unit
+from metro.location.models import District, Unit
 
-class TownshipAdmin(admin.ModelAdmin):
-    """Township model admin."""
+class DistrictAdmin(admin.ModelAdmin):
+    """District model admin."""
     list_display = ('id', 'name')
 
 class UnitAdmin(admin.ModelAdmin):
     """Unit model admin."""
-    list_display = ('id', 'latitude', 'longitude', 'township')
+    list_display = ('id', 'latitude', 'longitude', 'district')
 
-admin.site.register(Township, TownshipAdmin)
+admin.site.register(District, DistrictAdmin)
 admin.site.register(Unit, UnitAdmin)

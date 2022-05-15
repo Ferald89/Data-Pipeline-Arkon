@@ -1,4 +1,4 @@
-"""Township Models."""
+"""Unit Models."""
 
 # Django
 from django.db import models
@@ -14,8 +14,8 @@ class Unit(MetroModel):
     latitude = models.FloatField()
     longitude  = models.FloatField()
 
-    # Township use a Foreign Key from township model
-    township = models.ForeignKey('location.Township', on_delete=models.SET_NULL, null=True)
+    # District use a Foreign Key from district model
+    district = models.ForeignKey('location.District', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         """Return the id"""
