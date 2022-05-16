@@ -11,8 +11,8 @@ class Unit(MetroModel):
     id = models.IntegerField(primary_key=True)
 
     # Position
-    latitude = models.FloatField()
-    longitude  = models.FloatField()
+    latitude = models.FloatField(null=True)
+    longitude  = models.FloatField(null=True)
 
     # District use a Foreign Key from district model
     district = models.ForeignKey('location.District', on_delete=models.SET_NULL, null=True)
