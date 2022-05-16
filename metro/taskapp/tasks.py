@@ -18,7 +18,6 @@ def getDistrict(point):
     location = geolocator.reverse(point, timeout=10)
     # Get a list of adress to get the district
     location_list = location.raw["display_name"].split(", ")
-    print(location_list)
     # The district is localed in position before "Ciudad de México" or "Estado de México"
     if "Ciudad de México" in location_list:
         index = location_list.index('Ciudad de México') - 1
@@ -27,7 +26,7 @@ def getDistrict(point):
     district = location_list[index]
     return district
 
-@periodic_task(name="fetch_data", run_every=timedelta(seconds=10))
+@periodic_task(name="fetch_data", run_every=timedelta(minutes=10))
 def periodic_refresh():
     # Get data from API CDMX
     try:
