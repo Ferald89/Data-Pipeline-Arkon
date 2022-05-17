@@ -9,7 +9,10 @@ from metro.location.models import Unit
 # Serializer
 from metro.location.serializers import DistrictsModelSerializer
 
-class UnitModelSerializer(serializers.ModelSerializer):
+# GraphQL
+from django_restql.mixins import DynamicFieldsMixin
+
+class UnitModelSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     """Units Model Serializer."""
 
     district = DistrictsModelSerializer(read_only=True)

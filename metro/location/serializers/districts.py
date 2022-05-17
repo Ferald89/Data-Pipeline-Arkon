@@ -6,7 +6,10 @@ from rest_framework import serializers
 # Model
 from metro.location.models import District
 
-class DistrictsModelSerializer(serializers.ModelSerializer):
+# GraphQL
+from django_restql.mixins import DynamicFieldsMixin
+
+class DistrictsModelSerializer(DynamicFieldsMixin, serializers.ModelSerializer):
     """Districts Model Serializer."""
 
     class Meta:
