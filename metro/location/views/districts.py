@@ -23,7 +23,6 @@ class DistrictsViewSet(mixins.ListModelMixin,
         """Retrieve a list containing all 
         units availables into the district"""
         district = self.get_object()
-        print(district)
         units = Unit.objects.filter(district=district)
         data = UnitModelSerializer(units, many=True).data
         return Response(data)
