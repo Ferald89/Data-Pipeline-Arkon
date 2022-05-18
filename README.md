@@ -27,6 +27,12 @@ Ejemplo
 /api/unit/?query={id}
 ```
 
+## Testing
+Se pueden correr 
+```sh
+docker-compose run --rm app python manage.py test
+```
+
 > Note: La carpeta .env será mandada al control de versiones para su despliegue automático, esta contiene las variables que son necesarias en la aplicación y en una aplicación real, no deben almacenarse en el control de versiones.
 
 
